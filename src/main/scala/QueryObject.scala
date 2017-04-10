@@ -1,17 +1,10 @@
-import com.datastax.driver.core.Cluster
-
-/**
-  * Created by knoldus on 4/4/17.
-  */
-
 
 object QueryObject extends App {
 
-  val queryClass=new QueryClass
-  queryClass.userByEmail("akhil@gmail.com")
-  queryClass.videoByName("Jio Offer")
-  queryClass.videoByUseridYear(100,2015)
-  queryClass.videoByUseridYearDesc(100,2015)
+  val queryClass = new QueryClass
+  queryClass.userByEmail("ps@ps.com")
+  queryClass.videoByName("Bahubali2")
+  queryClass.videoByUseridYear(7, 1993)
+  queryClass.videoByUseridYearDesc(7, 1993)
 
 }
-

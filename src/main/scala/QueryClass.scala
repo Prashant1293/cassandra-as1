@@ -1,17 +1,14 @@
 import com.datastax.driver.core.Cluster
 
-/**
-  * Created by knoldus on 4/4/17.
-  */
 class QueryClass {
 
   val cluster = Cluster.builder().addContactPoint("127.0.0.1").build()
 
-  val session = cluster.connect("database")
+  val session = cluster.connect("kip")
 
   def userByEmail(email:String) = {
 
-    val res = session.execute(s"SELECT * FROM user where email='$email'")
+    val res = session.execute(s"SELECT * FROM User where email='$email'")
 
     val iterate = res.iterator()
 
@@ -25,7 +22,7 @@ class QueryClass {
 
   def videoByName(name:String) = {
 
-    val res = session.execute(s"SELECT * FROM videobyname where video_name='$name'")
+    val res = session.execute(s"SELECT * FROM VideoByName where video_name='$name'")
 
     val iterate = res.iterator()
 
@@ -39,7 +36,7 @@ class QueryClass {
 
   def videoByUseridYear(id:Int,year:Int) = {
 
-    val res = session.execute(s"SELECT * FROM videobyuseridnyear where userid=$id AND year>$year")
+    val res = session.execute(s"SELECT * FROM VideoByUserIdnYear where userid=$id AND year>$year")
 
     val iterate = res.iterator()
 
@@ -49,12 +46,11 @@ class QueryClass {
 
     }
     println()
-    //cluster.close()
   }
 
   def videoByUseridYearDesc(id:Int,year:Int) = {
 
-    val res = session.execute(s"SELECT * FROM videobyuseridnyear where userid=$id AND year>$year ORDER BY year DESC")
+    val res = session.execute(s"SELECT * FROM VideoByUserIdnYear where userid=$id AND year>$year ORDER BY year DESC")
 
     val iterate = res.iterator()
 
